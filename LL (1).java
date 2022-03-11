@@ -1,6 +1,9 @@
 // singly link list in java 
 class LL {
-  
+  int size;
+  LL(){
+    this.size=0;
+  }
   class Node {
     String data;
     Node next;
@@ -21,11 +24,13 @@ class LL {
     
     if(head==null){
       head=newNode;
+      size++;
     }
     else{
       
       newNode.next=head;
       head=newNode;
+      size++;
     }
   }
   
@@ -38,6 +43,7 @@ class LL {
      else{
        newNode.next=head;
        head=newNode;
+       size++;
      }
   }
   
@@ -53,6 +59,7 @@ class LL {
           pointer=pointer.next;
       }
       pointer.next=newNode;
+      size++;
     }
   }
   
@@ -81,19 +88,70 @@ class LL {
     }
     newNode.next=pointer.next;
     pointer.next=newNode;
+    size++;
   }
+  
+  
+  // deleting first element 
+ public void deleteFirst(){
+   if(head==null){
+     System.out.println("List is empty");
+   }
+   else{
+     Node pointer=head;
+     
+     pointer=pointer.next;
+     head=pointer;
+     size--;
+   }
+ }
+ 
+ // delete last element
+ public void deleteLast(){
+   
+   if(head==null){
+     System.out.println("List is Empty");
+   }
+   else{
+    Node pointer1=head;
+    Node pointer2=pointer1.next;
+    while(pointer2.next!=null){
+      pointer1=pointer2;
+      pointer2=pointer2.next;
+    }
+    pointer1.next=null;
+   System.out.println();
+     size--;
+   }
+ }
+ 
+ // size of list
+ public int size(){
+   return size;
+ }
   
 
     public static void main (String[]args){
       LL list = new LL();
-      list.add("yogesh");
-      list.add("bharat");
-      list.add("sourabh");
-      list.add("sanjay");
-      list.beginning("chota don");
-      list.last("bada don");
-      list.add_to_position(3,"gggg");
-      list.get();
+      //list.add("1");
+     // list.add("2");
+      list.add("2");
+     // list.add("4");
+      // list.beginning("chota don");
+      // list.last("bada don");
+      // list.add_to_position(3,"gggg");
+      // list.get();
+      // list.deleteFirst();
+      // list.get();
+      // list.deleteLast();
+      
+      list.beginning("1");
+      list.last("3");
+       list.get();
+      System.out.println(list.size());
+      
+      
+      
       
     }
 }
