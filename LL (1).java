@@ -125,9 +125,37 @@ class LL {
    }
  }
  
+ // delete at specific position 
+ public void deletePosition(int position ){
+   Node pointer1 = head;
+   Node pointer2 = pointer1.next;
+   for(int i=0;i<position;i++){
+     pointer1=pointer2;
+     pointer2=pointer2.next;
+   }
+   pointer1.next=pointer2.next;
+   
+   
+ }
+ 
  // size of list
  public int size(){
    return size;
+ }
+ 
+ public void search(String value){
+   Node pointer = head;
+   while(pointer!=null){
+     
+     if(pointer.data==value){
+       System.out.println("its present");
+       break;
+       
+     }
+     
+     pointer=pointer.next;
+   }
+   
  }
   
 
@@ -139,7 +167,7 @@ class LL {
      // list.add("4");
       // list.beginning("chota don");
       // list.last("bada don");
-      // list.add_to_position(3,"gggg");
+       
       // list.get();
       // list.deleteFirst();
       // list.get();
@@ -147,8 +175,11 @@ class LL {
       
       list.beginning("1");
       list.last("3");
+      list.add_to_position(1,"gggg");
+      list.deletePosition(1);
        list.get();
-      System.out.println(list.size());
+      //System.out.println(list.size());
+      // list.search("3");
       
       
       
